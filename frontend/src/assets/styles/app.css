@@ -1,0 +1,33 @@
+
+body{
+
+
+	font-family: sans-serif;
+}
+
+
+.navBar {
+	display: flex;
+	flex-direction:row;
+}
+
+h1{
+	text-align: center;
+
+}
+
+.navItem{
+	padding: 10px;
+	border-radius: 5px;
+	
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	margin:5px;
+
+}
+
+.link{
+	margin: 2px;
+	background: gray;
+	border-radius: 5px;
+
+}
