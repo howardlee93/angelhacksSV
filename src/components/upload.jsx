@@ -5,7 +5,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-import '../assets/styles/upload.css'
 
 
 
@@ -16,13 +15,36 @@ class Upload extends Component {
 
   render() {
     return (
-      <div className="Upload">
-        <div className= "Title">Upload Files</div>
-        <div className="Content">
-          <div />
-          <div className="Files" />
-        </div>
-        <div className="Actions" />
+      <div className = 'navItem'>
+      <h3>Upload missing persons information</h3>
+      <form>
+      
+      	<p><label> Name
+      	<input type="text"/>
+      	</label>
+      	</p>
+
+
+      	<p>
+      	<label> Location
+      	<input type ='text'/>
+      	</label>
+      	</p>
+
+      	<p>
+      	<label>Time
+      	<input type ='text'/>
+      	</label>
+      	</p>
+
+      	<p>
+      	<label> Photos
+      	<input type='file' />
+      	</label>
+      	</p>
+
+      	<input type="submit"/>
+      </form>
       </div>
     )
   }

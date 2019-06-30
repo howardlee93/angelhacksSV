@@ -3,6 +3,8 @@
 
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import placeholder from '../assets/img/placeholder.jpg';
+
 
 
 class MissingEntry extends React.Component{
@@ -14,9 +16,9 @@ class MissingEntry extends React.Component{
 
 	render(){
 		return(
-			<div>
+			<div className ='navItem'>
 				<h3>Name</h3>
-				<img src ='../assets/img/placeholder.jpg' alt='missing persons photo'></img>
+				<img src ={placeholder} alt='missing persons photo' width='40%' height = '40%'></img>
 				<p> Last seen 21:21 </p>
 				<p> At: Location</p>
 

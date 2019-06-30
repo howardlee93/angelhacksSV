@@ -11,7 +11,7 @@ class MoreInfo extends React.Component{
 
 	render(){
 		return(
-			<div>
+			<div className="navItem">
 				<h3>Here are some resources for you</h3>
 				<a href="https://oag.ca.gov/missing"> California Missing Persons</a> 
 				
