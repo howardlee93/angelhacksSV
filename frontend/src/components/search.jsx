@@ -5,11 +5,12 @@ import ReactDOM from 'react-dom';
 
 
 
+
 class Search extends Component{
 	constructor(props){
 		super(props);
 		this.state={
-			query:'',
+			term:'',
 		}
 		this.handleSearchChange = this.handleSearchChange.bind(this);
 		this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -19,7 +20,7 @@ class Search extends Component{
 
 	handleSearchChange(e){
 		this.setState({
-			query: e.target.value,
+			term: e.target.value,
 		});
 
 
@@ -27,11 +28,11 @@ class Search extends Component{
 	}
 	handleFormSubmit(e){
 		const {onFormSubmit} = this.props;
-        const { query } = this.state;
+        const { term } = this.state;
 
         e.preventDefault();
         
-        onFormSubmit(query);
+        onFormSubmit(term);
 
 
 
@@ -44,7 +45,7 @@ class Search extends Component{
 					<label> Search missing persons:
 					<input type="text"
 					onChange= {this.handleSearchChange}
-					value={this.state.query}
+					value={this.state.term}
 					/>
 
 					</label>

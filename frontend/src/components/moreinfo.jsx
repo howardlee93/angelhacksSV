@@ -13,7 +13,9 @@ class MoreInfo extends React.Component{
 		return(
 			<div className="navItem">
 				<h3>Here are some resources for you</h3>
-				<a href="https://oag.ca.gov/missing"> California Missing Persons</a> 
+				<a href="https://oag.ca.gov/missing"> California Missing Persons</a>
+				<a href="https://oag.ca.gov/missing"> National Center for Missing and Exploited Children</a>
+
 				
 			</div>
 

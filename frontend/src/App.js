@@ -12,6 +12,9 @@ import {
  	Switch
 } from 'react-router-dom';
 
+import logo from './assets/img/logo.png';
+
+import Login from './components/login'
 import Upload from './components/upload';
 import MissingEntry from './components/missingEntry';
 import MoreInfo from './components/moreinfo';
@@ -33,17 +36,18 @@ render(){
 
 	return(
 
-		<div>
-				<h1> Missing persons portal</h1>
-
+		<div >
+            <div className="navBar">
+            <img  src ={logo} alt='missing persons photo' width='10%' height = '10%' ></img>
 
           		<NavLink to='/MissingEntry' className="link">Missing person</NavLink>
           		<NavLink to='/Upload' className="link">Upload information</NavLink>
           		<NavLink to='/MoreInfo' className="link">Additional resources</NavLink>
+              </div>
 
-
-          	 <div className="tabs">
+          	 <div className="tabs" style={{display:'flex', justifyContent:'center'}}>
           	 	 <Switch>
+                <Route path ='/Login' component={Login}/>
           	 	 	<Route path='/MissingEntry'  component={MissingEntry}/>
           	 	 	<Route path='/Upload' component={Upload}/>
           	 	 	<Route path='/MoreInfo'  component={MoreInfo}/>
@@ -55,6 +59,9 @@ render(){
 
 
           	 </div>
+             <footer style={{display:'flex', justifyContent:'center'}}>
+              <p> AngelHacks Silicon Valley 2019</p>
+             </footer>
 
 		</div>
 

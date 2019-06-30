@@ -5,6 +5,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
+
 
 
 
@@ -91,33 +93,30 @@ class Upload extends Component {
        {this.state.success ? <SuccessMessage/> : null}
        {this.state.error ? <ErrorMessage/> : null}
       <h3>Upload missing persons information</h3>
-      <form>
+      <form style={{display:'flex',
+        flexDirection:'column',
+        textAlign:'left'
+        }}>
       
-      	<p><label> Name
+      	<label> Name
       	<input type="text"/>
       	</label>
-      	</p>
 
 
-      	<p>
       	<label> Location
       	<input type ='text' onChange = {this.handleChange}/>
       	</label>
-      	</p>
 
-      	<p>
       	<label>Time
       	<input type ='text' onChange = {this.handleChange}/>
       	</label>
-      	</p>
 
-      	<p>
       	<label> Photos
       	<input type='file' onChange = {this.handleChange} ref={(ref) => { this.uploadInput = ref; }} type="file"/>
       	</label>
-      	</p>
+      
 
-        <button onClick={this.handleUpload}>UPLOAD</button>
+        <Button onClick={this.handleUpload}>UPLOAD</Button>
       </form>
       </div>
     )
