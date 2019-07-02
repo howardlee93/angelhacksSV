@@ -5,9 +5,13 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import Login from './login';
 import Button from '@material-ui/core/Button';
 
+const labelStyle={
+          marginLeft:" 30%"
 
+}
 
 
 class Upload extends Component {
@@ -90,28 +94,32 @@ class Upload extends Component {
 
     return (
       <div className = 'navItem'>
+
+
        {this.state.success ? <SuccessMessage/> : null}
        {this.state.error ? <ErrorMessage/> : null}
       <h3>Upload missing persons information</h3>
+      <Login/>
       <form style={{display:'flex',
         flexDirection:'column',
-        textAlign:'left'
+        textAlign:'left',
+        flexWrap:'nowrap',
         }}>
       
-      	<label> Name
+      	<label style={labelStyle}> Name
       	<input type="text"/>
       	</label>
 
 
-      	<label> Location
+      	<label style={labelStyle}> Location
       	<input type ='text' onChange = {this.handleChange}/>
       	</label>
 
-      	<label>Time
+      	<label style={labelStyle}>Time
       	<input type ='text' onChange = {this.handleChange}/>
       	</label>
 
-      	<label> Photos
+      	<label style={labelStyle}> Photos or video
       	<input type='file' onChange = {this.handleChange} ref={(ref) => { this.uploadInput = ref; }} type="file"/>
       	</label>
       

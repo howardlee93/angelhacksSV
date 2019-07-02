@@ -2,6 +2,8 @@
 
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import TextField from '@material-ui/core/TextField';
+
 
 
 
@@ -42,13 +44,12 @@ class Search extends Component{
 		return(
 			<div>
 				<form onSubmit={(e) => this.handleFormSubmit(e)}>
-					<label> Search missing persons:
-					<input type="text"
+					<TextField input type="text"
 					onChange= {this.handleSearchChange}
 					value={this.state.term}
+					placeholder =" Search missing persons:"
 					/>
 
-					</label>
 
 					<button type = 'submit' > Go! </button>
 
@@ -66,3 +67,6 @@ class Search extends Component{
 }
 
 export default Search;
+
+
+

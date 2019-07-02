@@ -47,7 +47,6 @@ render(){
 
           	 <div className="tabs" style={{display:'flex', justifyContent:'center'}}>
           	 	 <Switch>
-                <Route path ='/Login' component={Login}/>
           	 	 	<Route path='/MissingEntry'  component={MissingEntry}/>
           	 	 	<Route path='/Upload' component={Upload}/>
           	 	 	<Route path='/MoreInfo'  component={MoreInfo}/>

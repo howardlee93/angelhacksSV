@@ -6,9 +6,12 @@ import ReactDOM from 'react-dom';
 import Search from './search'
 import placeholder from '../assets/img/placeholder.jpg';
 import axios from 'axios';
+import TextField from '@material-ui/core/TextField';
 
 
-const apiURL = "https://rekognition-cali.s3-us-west-1.amazonaws.com/";
+
+
+const apiURL = "https://rekognition-output-angelhack.s3-us-west-1.amazonaws.com/testFile";
 
 
 
@@ -18,7 +21,8 @@ class MissingEntry extends React.Component{
 		super(props);
 		this.state= {
 			term:'',
-			img:'',
+			data:'',
+			status:' found in Fremont on June 30, 2019'
 			
 
 
@@ -37,6 +41,8 @@ class MissingEntry extends React.Component{
 
 
 
+
+
 	fetchInfo(term){
 
 		axios.get(apiURL +
@@ -44,9 +50,6 @@ class MissingEntry extends React.Component{
 			)
 		.then(function (response) {
     		console.log(response);
-    		this.setState({
-    			img: apiURL +term, 
-    		});
 
   		})
   		.catch(function (error) {
@@ -56,10 +59,14 @@ class MissingEntry extends React.Component{
 	}
 
 	onFormSubmit(term){
-		this.fetchInfo(term);
+		//this.fetchInfo(term);
+
 		this.setState({
-    			img: `${apiURL} +${term}`, 
+    			status: `${term} is found`, 
     		});
+
+		console.log(this.state.status);
+
 
 
 		
@@ -68,14 +75,15 @@ class MissingEntry extends React.Component{
 
 
 	render(){
+
+
 		return(
 			<div className ='navItem'>
-
-				<h3><Search onFormSubmit = {this.onFormSubmit}/></h3>
-				<h4>Name</h4>
-				<img src ={placeholder} alt='missing persons photo' height = '30%' width = '30%'></img>
-				<p> Last seen 21:21 </p>
-				<p> At: Location</p>
+				<h3> Missing Persons information and search</h3>
+				<Search onSubmit = {this.onFormSubmit}/>
+				<div> 
+					{this.state.status}
+				</div>
 
 			</div>
 

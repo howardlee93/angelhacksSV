@@ -29,3 +29,8 @@ app.use('/sign_s3', sign_s3.sign_s3);
 app.listen(port);
 
 console.log("Server Started make a request to localhost:" + port )
+
+// read txt file
+
+
+ 
