@@ -1,19 +1,14 @@
-
-
-
 import React, {Component } from 'react';
 import { withStyles } from '@material-ui/core';
 
 
 const styles = (theme) => ({
   box: {
-    border: 'thin black solid',
-    // color: 'red',
-    width: 600,
-    // 'vertical-align': 'center',
+
     fontFamily: 'sans-serif',
     fontSize: 18,
   },
+
   header: {
     backgroundColor: 'blue',
     color: 'white',
@@ -33,7 +28,7 @@ class Login extends Component {
       <div>
         <center>
           <div className={classes.box}>
-            <h1>Login</h1>
+            <h1>Login to upload information</h1>
             <div className={classes.box}>
               <form id="login">
                 <label>Username</label><br></br>

@@ -14,7 +14,6 @@ import {
 
 import logo from './assets/img/logo.png';
 
-import Login from './components/login'
 import Upload from './components/upload';
 import MissingEntry from './components/missingEntry';
 import MoreInfo from './components/moreinfo';

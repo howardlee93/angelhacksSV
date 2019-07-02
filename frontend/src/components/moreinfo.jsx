@@ -2,17 +2,9 @@ import React, {Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
 
-class MoreInfo extends React.Component{
 
-	constructor(props){
-		super(props);
-
-	}
-
-	render(){
-
-
-		return(
+function MoreInfo(){
+	return(
 
 			<div className="navItem">
 				<h3>Here are some resources for you</h3>
@@ -28,7 +20,7 @@ class MoreInfo extends React.Component{
 					the security footage of nearby cameras.</p>
 					<p> Our team includes:</p>
 					<ul><a href="https://howardlee93.github.io">Howard Lee</a></ul>
-					<ul><a href="https://github.com/kenhlu">Ken L</a></ul>
+					<ul><a href="https://github.com/kenhlu">Ken Lu</a></ul>
 					<ul><a href="https://github.com/shirleydongj">Shirley Dong </a></ul>
 
 
@@ -36,15 +28,7 @@ class MoreInfo extends React.Component{
 				</Fragment>
 				
 			</div>
-
-
-
-
-
 			)
-	}
-
-
 
 }
 
