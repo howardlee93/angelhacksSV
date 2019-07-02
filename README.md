@@ -4,15 +4,18 @@
 Rekognition system to find lost persons, using photos provided by friends and family of the person and matching with
 the security footage of nearby cameras.
 
-##Our team includes
+*Our team includes
+
 ><a href="https://howardlee93.github.io">Howard Lee</a>
+
 ><a href="https://github.com/kenhlu">Ken Lu</a>
+
 ><a href="https://github.com/shirleydongj">Shirley Dong </a>
 
 
-##To install:
+*To install:
 
-	In command line, navigate to frontend directory: 
+	*In command line, navigate to frontend directory: 
 
 		$npm install
 
