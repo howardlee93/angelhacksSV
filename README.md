@@ -12,8 +12,7 @@ Our team includes
 
 ><a href="https://github.com/shirleydongj">Shirley Dong </a>
 
-
-*To install:
+To install:
 
 	*In command line, navigate to frontend directory: 
 
