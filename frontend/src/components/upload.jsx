@@ -9,9 +9,20 @@ import Login from './login';
 import Button from '@material-ui/core/Button';
 
 const labelStyle={
-          marginLeft:" 30%"
+  form:{
+    display:'flex',
+    flexDirection:'column',
+    textAlign:'left',
+    flexWrap:'nowrap',
+    label:{
+      marginLeft:"30%",
+    }
+  }
+
 
 }
+
+const url = "blah blah";
 
 const fakeAuth = {
   isAuthenticated: false,
@@ -52,6 +63,20 @@ class Upload extends Component {
   }
 
   handleUpload(e){
+    const {data} = this.state;
+
+    e.preventDefault();
+    axios.post( url, {
+      data: data,
+
+
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   
 
   }
@@ -87,26 +112,22 @@ class Upload extends Component {
 
 
 
-      <form style={{display:'flex',
-        flexDirection:'column',
-        textAlign:'left',
-        flexWrap:'nowrap',
-        }}>
+      <form style={labelStyle.form}>
       
-      	<label style={labelStyle}> Name
+      	<label > Name
       	<input type="text"/>
       	</label>
 
 
-      	<label style={labelStyle}> Location
+      	<label > Location
       	<input type ='text' onChange = {this.handleChange}/>
       	</label>
 
-      	<label style={labelStyle}>Time
+      	<label >Time
       	<input type ='text' onChange = {this.handleChange}/>
       	</label>
 
-      	<label style={labelStyle}> Photos or video
+      	<label > Photos or video
       	<input type='file' onChange = {this.handleChange} ref={(ref) => { this.uploadInput = ref; }} type="file"/>
       	</label>
       

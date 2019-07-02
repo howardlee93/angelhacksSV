@@ -12,6 +12,8 @@ import TextField from '@material-ui/core/TextField';
 
 
 const apiURL = "https://rekognition-output-angelhack.s3-us-west-1.amazonaws.com/testFile";
+const url= "";
+
 
 
 
@@ -19,17 +21,18 @@ class MissingEntry extends React.Component{
 
 	constructor(props){
 		super(props);
-		this.state= {
-			term:'',
-			data:'',
-			status:' found in Fremont on June 30, 2019'
-			
+		this.state = {
+			person:'Bob',
+			location:'Fremont',
+			time: '12:12',
+			photo: '',
+
 
 
 
 		}
 		this.onFormSubmit = this.onFormSubmit.bind(this);
-		this.fetchInfo = this.fetchInfo.bind(this);
+		this.searchInfo = this.searchInfo.bind(this);
 
 
 	}
@@ -43,10 +46,10 @@ class MissingEntry extends React.Component{
 
 
 
-	fetchInfo(term){
+	searchInfo(person){
 
-		axios.get(apiURL +
-			term
+		axios.get( url +
+			person
 			)
 		.then(function (response) {
     		console.log(response);
@@ -58,14 +61,14 @@ class MissingEntry extends React.Component{
 
 	}
 
-	onFormSubmit(term){
-		//this.fetchInfo(term);
+	onFormSubmit(person){
+		//this.searchInfo(term);
 
 		this.setState({
-    			status: `${term} is found`, 
+    			status: `${person} is found`, 
     		});
 
-		console.log(this.state.status);
+		console.log(this.state.person);
 
 
 
@@ -75,16 +78,23 @@ class MissingEntry extends React.Component{
 
 
 	render(){
+		const status = this.state;
+
+
 
 
 		return(
 			<div className ='navItem'>
 				<h3> Missing Persons information and search</h3>
 				<Search onSubmit = {this.onFormSubmit}/>
-				<div> 
-					{this.state.status}
+				<div>
+					<p> {status.person} was found in {status.location} at {status.time}</p>
+					<img src = { 
+						 	(status.photo)?
+						 	status.photo :
+						 	placeholder } 
+						  height = '40%' width ='40%' alt="photo"/>
 				</div>
-
 			</div>
 
 

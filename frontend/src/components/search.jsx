@@ -3,9 +3,16 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 
 
-
+const styles = {
+  button: {
+    marginLeft: '1%',
+    color: "red",
+  },
+};
 
 
 class Search extends Component{
@@ -36,8 +43,6 @@ class Search extends Component{
         
         onFormSubmit(term);
 
-
-
 	}
 
 	render(){
@@ -51,7 +56,7 @@ class Search extends Component{
 					/>
 
 
-					<button type = 'submit' > Go! </button>
+					<Button className= {styles.button} type = 'submit' variant="contained" component="span" > Go! </Button>
 
 				</form>
 			</div>
@@ -66,7 +71,7 @@ class Search extends Component{
 
 }
 
-export default Search;
+export default withStyles(styles) (Search);
 
 
 
