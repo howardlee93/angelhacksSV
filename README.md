@@ -4,7 +4,7 @@
 Rekognition system to find lost persons, using photos provided by friends and family of the person and matching with
 the security footage of nearby cameras.
 
-*Our team includes
+Our team includes
 
 ><a href="https://howardlee93.github.io">Howard Lee</a>
 
