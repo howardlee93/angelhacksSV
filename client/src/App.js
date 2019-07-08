@@ -37,7 +37,7 @@ render(){
 
 		<div >
             <div className="navBar">
-            <img  src ={logo} alt='missing persons photo' width='10%' height = '10%' ></img>
+            <img  src ={logo} alt='missing-persons' width='10%' height = '10%' ></img>
 
           		<NavLink to='/MissingEntry' className="link">Missing person</NavLink>
           		<NavLink to='/Upload' className="link">Upload information</NavLink>

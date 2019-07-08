@@ -1,18 +1,9 @@
-
-
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
-
-const styles = {
-  button: {
-    marginLeft: '1%',
-    color: "red",
-  },
-};
 
 
 class Search extends Component{
@@ -28,6 +19,8 @@ class Search extends Component{
 	}
 
 	handleSearchChange(e){
+		e.preventDefault();
+		
 		this.setState({
 			term: e.target.value,
 		});
@@ -38,40 +31,32 @@ class Search extends Component{
 	handleFormSubmit(e){
 		const {onFormSubmit} = this.props;
         const { term } = this.state;
-
         e.preventDefault();
-        
         onFormSubmit(term);
 
 	}
 
 	render(){
+
 		return(
 			<div>
-				<form onSubmit={(e) => this.handleFormSubmit(e)}>
+				<form onSubmit={(e) => this.handleFormSubmit(e) }>
 					<TextField input type="text"
 					onChange= {this.handleSearchChange}
-					value={this.state.term}
-					placeholder =" Search missing persons:"
+					value= {this.state.term}
+					placeholder ="enter missing person's name:"
 					/>
-
-
-					<Button className= {styles.button} type = 'submit' variant="contained" component="span" > Go! </Button>
+					<p/>
+					<Button type = 'submit'  variant="contained"  > Go! </Button>
 
 				</form>
 			</div>
 
 			)
-
-
-
 	}
-
-
-
 }
 
-export default withStyles(styles) (Search);
+export default Search;
 
 
 
