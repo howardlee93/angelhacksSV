@@ -22,14 +22,10 @@ class MissingEntry extends React.Component{
 			location:'',
 			time: '',
 			photo: null,
-
-
-
-
 		}
+		
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 		this.searchInfo = this.searchInfo.bind(this);
-
 
 	}
 
@@ -39,35 +35,36 @@ class MissingEntry extends React.Component{
 			person:'Bob',
 			location:'Fremont',
 			time: '12:12',
-			//testing
 			photo: null,});
-
 
 	}
 
 
 	componentDidUpdate(prevProps, prevState){
 
-
 	}
-
-
 
 
 
 	searchInfo(term){
 		axios.get( url +
-			"search/" +
-			term
-			)
+			"search/" ,
+			{params:{
+				term:`${term}`,
+			}
+			})
 		.then(function (response) {
 			console.log("SUCCESS!");
     		console.log(response);
+    		console.log(response.data[0]["person"]);
+
+
+
     		this.setState({
-				person: response.person,
-				location: response.location,
-				time: response.time,
-				photo: response.file,
+				person: response.data[0]["person"],
+				location: response.data[0]["location"],
+				time: response.data[0]["time"],
+				//photo: response.file,
     		})
 
   		})
@@ -81,8 +78,6 @@ class MissingEntry extends React.Component{
 
 	onFormSubmit(term){
 		console.log(`Querying  for ${term}`);
-		this.setState({person: term});
-		console.log(`Querying  for ${this.state.person}`);
 		this.searchInfo(term);
 
 	}
@@ -97,7 +92,7 @@ class MissingEntry extends React.Component{
 				<h3> Missing Persons information and search</h3>
 				<Search onFormSubmit = {this.onFormSubmit} />
 				<div>
-					<p> {status.term} was found in {status.location} at {status.time}</p>
+					<p> {status.person} was found in {status.location} at {status.time}</p>
 					<img src = { 
 						 	(status.photo)?
 						 	status.photo :

@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const PORT = 4000;
+const upload = require('multer');
 
 
 app.use(cors());
@@ -29,34 +30,27 @@ connection.once('open', function() {
 const personRoutes = express.Router();
 let Person = require("./models/personsInfo");
 
+ 
 
-// //app.use("/search", personRoutes);
+//need authentication 
 
-// //find all 
-// personRoutes.route('/').get(function(req, res) {
-//     person.find(function(err, person) {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             res.json(todos);
-//         }
-//     });
-// });
+//work on search 
 
 personRoutes.route('/search').get(function(req, res) {
-   // let id = req.params.id;
+    let name = req.query.term;
 
-    Person.find({name: `${name}`}, function(err, person) {
+    Person.find({ person: `${name}` }, function(err, person) {
         res.json(person);
     });
 });
 
+//upload -- seems to work so far
 
 personRoutes.route('/upload').post(function(req, res) {
     let person = new Person(req.body);
     person.save()
         .then(person => {
-            res.status(200).send('info added successfully');
+            res.status(200).send('Data received:\n' + JSON.stringify(req.body));
         })
         .catch(err => {
             res.status(400).send('adding new info failed');
