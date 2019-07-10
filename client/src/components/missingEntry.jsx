@@ -7,11 +7,7 @@ import axios from 'axios';
 
 
 
-//const apiURL = "https://rekognition-output-angelhack.s3-us-west-1.amazonaws.com/testFile";
 const url = "http://localhost:4000/";
-
-
-
 
 class MissingEntry extends React.Component{
 
@@ -21,8 +17,8 @@ class MissingEntry extends React.Component{
 			person:'',
 			location:'',
 			time: '',
-			photo: null,
-		}
+			photo:null
+					}
 		
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 		this.searchInfo = this.searchInfo.bind(this);
@@ -39,21 +35,19 @@ class MissingEntry extends React.Component{
 
 	}
 
-
 	componentDidUpdate(prevProps, prevState){
 
 	}
 
 
-
 	searchInfo(term){
 		axios.get( url +
 			"search/" ,
-			{params:{
+			{params: {
 				term:`${term}`,
 			}
 			})
-		.then(function (response) {
+		.then( (response)=>{
 			console.log("SUCCESS!");
     		console.log(response);
     		console.log(response.data[0]["person"]);
@@ -64,7 +58,6 @@ class MissingEntry extends React.Component{
 				person: response.data[0]["person"],
 				location: response.data[0]["location"],
 				time: response.data[0]["time"],
-				//photo: response.file,
     		})
 
   		})
@@ -77,11 +70,10 @@ class MissingEntry extends React.Component{
 	}
 
 	onFormSubmit(term){
-		console.log(`Querying  for ${term}`);
+		console.log(`Querying for ${term}`);
 		this.searchInfo(term);
 
 	}
-
 
 
 	render(){
@@ -101,13 +93,8 @@ class MissingEntry extends React.Component{
 				</div>
 			</div>
 
-
-
-
-
 			)
 	}
-
 
 
 }

@@ -41,7 +41,7 @@ class Search extends Component{
 		return(
 			<div>
 				<form onSubmit={(e) => this.handleFormSubmit(e) }>
-					<TextField input type="text"
+					<TextField  type="text"
 					onChange= {this.handleSearchChange}
 					value= {this.state.term}
 					placeholder ="enter missing person's name:"

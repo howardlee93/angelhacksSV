@@ -35,9 +35,9 @@ class Upload extends Component {
   constructor(props) {
     super(props);
     this.state ={
-    	 // success : false,
-      // 	error: false,
-      // 	errorMessage : "",
+    	 success : false,
+      	error: false,
+      	errorMessage : "",
         person: "",
         location:"",
         time:"",
@@ -76,13 +76,12 @@ class Upload extends Component {
     axios.post(url + "upload",  this.state)
             .then((response) => {
                 alert("The file is successfully uploaded");
-              //  this.setState({success: true});
-             //   console.log(this.state.success);
+               this.setState({success: true});
+               console.log(this.state.success);
                 console.log(response);
                 
 
             }).catch((error) => {
-                this.setState({success: false});
                 console.log(error);
 
 
@@ -93,9 +92,31 @@ class Upload extends Component {
 
   render() {
 
+    const SuccessMessage = () => ( 
+        <div style={{padding:50}}>  
+        <h3 style={{color: 'green'}}>SUCCESSFUL UPLOAD</h3> 
+        <a href={this.state.url}>Access the file here</a> 
+        <br/> 
+      </div>  
+    ) 
+       
+    const ErrorMessage = () => (  
+      <div style={{padding:50}}>  
+        <h3 style={{color: 'red'}}>FAILED UPLOAD</h3> 
+        <span style={{color: 'red', backgroundColor: 'black'}}>ERROR: </span> 
+        <span>{this.state.errorMessage}</span>  
+        <br/> 
+      </div>  
+    )
+
 
     return (
       <div className = 'navItem'>
+
+
+      
+       {this.state.success ? <SuccessMessage/> : null}  
+       {this.state.error ? <ErrorMessage/> : null}
 
       <h3>Upload missing persons information</h3>
 
