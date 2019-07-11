@@ -16,12 +16,30 @@ const styles = (theme) => ({
 });
 
 class Login extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      login: false,
+    }
+    this.onLogin = this.onLogin.bind(this);
+
+  }
+
+
+  onLogin(){
+    this.setState({
+      login:true,
+    });
+    const {onAuthentication} = this.props;
+    onAuthentication();
+    
+
+  }
 
   render() {
 
     const {
       classes,
-      dashNav
     } = this.props;
 
     return (
@@ -36,7 +54,7 @@ class Login extends Component {
                 <label>Password</label><br></br>
                 <input type='password' id='password'></input><p></p>
                 <input type='checkbox'></input><label>Remember me</label><br></br>
-                <input type='button' onClick={dashNav} name="" value="Login"></input>
+                <input type='button' onClick={this.onLogin} name="" value="Login"></input>
               </form>
             </div>
           </div>

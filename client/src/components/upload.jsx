@@ -19,17 +19,6 @@ const labelStyle ={
 
 const url = "http://localhost:4000/";
 
-const fakeAuth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true
-    setTimeout(cb, 100) // fake async
-  },
-  signout(cb) {
-    this.isAuthenticated = false
-    setTimeout(cb, 100) // fake async
-  }
-}
 
 class Upload extends Component {
   constructor(props) {
@@ -40,22 +29,29 @@ class Upload extends Component {
       	errorMessage : "",
         person: "",
         location:"",
-        time:"",
+        time: "",
+        authenticated: false,
 
 
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
+    this.onAuthentication = this.onAuthentication.bind(this);
 
+  }
+
+
+  onAuthentication(){
+  	this.setState({
+  		authenticated: true,
+
+  	});
   }
 
   handleChange(e){
   	this.setState({
       [e.target.name]: e.target.value
     });
-
-
-
   }
 
   handleUpload(e){
@@ -64,16 +60,14 @@ class Upload extends Component {
     axios.post(url + "upload",  this.state)
             .then((response) => {
                 alert("The file is successfully uploaded");
-               this.setState({success: true});
-               console.log(this.state.success);
+               	this.setState({success: true});
+               	console.log(this.state.success);
                 console.log(response);
                 
 
             }).catch((error) => {
+            	this.setState({success: false});
                 console.log(error);
-
-
-
         });
 
   }
@@ -97,19 +91,8 @@ class Upload extends Component {
       </div>  
     )
 
-
-    return (
-      <div className = 'navItem'>
-
-      
-       {this.state.success ? <SuccessMessage/> : null}  
-       {this.state.error ? <ErrorMessage/> : null}
-
-      <h3>Upload missing persons information</h3>
-      
-      <Login />
-
-      <form style={labelStyle.form} onSubmit={(e)=>{this.handleUpload(e)}} >
+    const UploadForm = () =>(
+    	<form style={labelStyle.form} onSubmit={(e)=>{this.handleUpload(e)}} >
       
       	<input type="text" name ="person" placeholder="name" onChange = {this.handleChange}/>
 
@@ -121,6 +104,24 @@ class Upload extends Component {
 
 
       </form>
+      )
+
+
+    return (
+      <div className = 'navItem'>
+
+      
+       {this.state.success ? <SuccessMessage/> : null}  
+       {this.state.error ? <ErrorMessage/> : null}
+
+      <h3>Upload missing persons information</h3>
+      
+
+      <Login onAuthentication = {this.onAuthentication}/>
+
+      { this.state.authenticated?
+      	<UploadForm/>: <p> You need to login to see this page.</p>
+       }
 
       </div>
     )

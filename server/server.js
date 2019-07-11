@@ -36,7 +36,7 @@ let Person = require("./models/personsInfo");
 
 
 personRoutes.route('/search').get(function(req, res) {
-    let name = req.query.term;
+    let name = req.query.term.toLowerCase();
 
     Person.find({ person: `${name}` }, function(err, person) {
         res.json(person);
