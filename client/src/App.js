@@ -30,7 +30,6 @@ class App extends React.Component{
 
 	}
 
-
 render(){
 
 	return(
@@ -45,16 +44,14 @@ render(){
               </div>
 
           	 <div className="tabs" style={{display:'flex', justifyContent:'center'}}>
-          	 	 <Switch>
-          	 	 	<Route path='/MissingEntry'  component={MissingEntry}/>
+          	 	
+               <Switch>
+          	 	
+               	<Route path='/MissingEntry'  component={MissingEntry}/>
           	 	 	<Route path='/Upload' component={Upload}/>
           	 	 	<Route path='/MoreInfo'  component={MoreInfo}/>
 
-
-
           	 	 </Switch>
-
-
 
           	 </div>
              <footer style={{display:'flex', justifyContent:'center'}}>
@@ -62,9 +59,6 @@ render(){
              </footer>
 
 		</div>
-
-		
-
 		)
 	}
 

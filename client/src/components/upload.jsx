@@ -3,9 +3,9 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import Login from './login';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
+import Login from './login';
 
 const labelStyle ={
   form:{
@@ -19,29 +19,28 @@ const labelStyle ={
 
 const url = "http://localhost:4000/";
 
-// const fakeAuth = {
-//   isAuthenticated: false,
-//   authenticate(cb) {
-//     this.isAuthenticated = true
-//     setTimeout(cb, 100) // fake async
-//   },
-//   signout(cb) {
-//     this.isAuthenticated = false
-//     setTimeout(cb, 100) // fake async
-//   }
-// }
+const fakeAuth = {
+  isAuthenticated: false,
+  authenticate(cb) {
+    this.isAuthenticated = true
+    setTimeout(cb, 100) // fake async
+  },
+  signout(cb) {
+    this.isAuthenticated = false
+    setTimeout(cb, 100) // fake async
+  }
+}
 
 class Upload extends Component {
   constructor(props) {
     super(props);
     this.state ={
-    	 success : false,
+    	success : false,
       	error: false,
       	errorMessage : "",
         person: "",
         location:"",
         time:"",
-      //  file: null,
 
 
     }
@@ -61,17 +60,6 @@ class Upload extends Component {
 
   handleUpload(e){
     e.preventDefault();
-    // const uploadData = this.state;
-
-    // const formData = new FormData();
-    // Object.keys(uploadData).forEach(key => formData.append(key, uploadData[key]));
-    // console.log(formData.get("name"));//testing 
-
-    // const config = {
-    //   headers: {
-    //     'content-type': 'multipart/form-data'
-    //         }
-    //     };
         
     axios.post(url + "upload",  this.state)
             .then((response) => {
@@ -113,13 +101,13 @@ class Upload extends Component {
     return (
       <div className = 'navItem'>
 
-
       
        {this.state.success ? <SuccessMessage/> : null}  
        {this.state.error ? <ErrorMessage/> : null}
 
       <h3>Upload missing persons information</h3>
-
+      
+      <Login />
 
       <form style={labelStyle.form} onSubmit={(e)=>{this.handleUpload(e)}} >
       
@@ -140,3 +128,5 @@ class Upload extends Component {
 }
 
 export default withStyles(labelStyle) (Upload);
+
+

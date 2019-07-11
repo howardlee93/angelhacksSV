@@ -34,7 +34,6 @@ let Person = require("./models/personsInfo");
 
 //need authentication 
 
-//work on search 
 
 personRoutes.route('/search').get(function(req, res) {
     let name = req.query.term;
@@ -44,7 +43,7 @@ personRoutes.route('/search').get(function(req, res) {
     });
 });
 
-//upload -- seems to work so far
+//upload 
 
 personRoutes.route('/upload').post(function(req, res) {
     let person = new Person(req.body);

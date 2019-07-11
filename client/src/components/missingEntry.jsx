@@ -45,19 +45,23 @@ class MissingEntry extends React.Component{
 			"search/" ,
 			{params: {
 				term:`${term}`,
-			}
+				}
 			})
 		.then( (response)=>{
 			console.log("SUCCESS!");
     		console.log(response);
     		console.log(response.data[0]["person"]);
+    		console.log(typeof(response.data[0]["time"]));
+    		var d = new Date(response.data[0]["time"]);
+
+
 
 
 
     		this.setState({
 				person: response.data[0]["person"],
 				location: response.data[0]["location"],
-				time: response.data[0]["time"],
+				time: d.toLocaleTimeString()
     		})
 
   		})
@@ -84,12 +88,13 @@ class MissingEntry extends React.Component{
 				<h3> Missing Persons information and search</h3>
 				<Search onFormSubmit = {this.onFormSubmit} />
 				<div>
-					<p> {status.person} was found in {status.location} at {status.time}</p>
-					<img src = { 
+				<img src = { 
 						 	(status.photo)?
 						 	status.photo :
 						 	placeholder } 
-						  height = '40%' width ='40%' alt="lost-person"/>
+						  height = '19%' width ='19%' alt="lost-person"/>
+					<h4 style={{color:'green', fontSize:'20px'}}> {status.person} was found in {status.location} at {status.time}</h4>
+					
 				</div>
 			</div>
 
