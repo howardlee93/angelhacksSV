@@ -101,6 +101,8 @@ class Upload extends Component {
       	<input type ='text' placeholder= "time" name= "time" onChange = {this.handleChange}/>
 
         <Button type="submit" style={{justifyContent:'center'}}>UPLOAD</Button>
+        <button style={{justifyContent:'center'}} > Logout</button>
+
 
 
       </form>
@@ -118,8 +120,11 @@ class Upload extends Component {
       
 
      { !this.state.authenticated && <Login onAuthentication = {this.onAuthentication}/>}
+     
       { this.state.authenticated?
-      	<UploadForm/>: <p> You need to login to see this page.</p>
+      	<UploadForm/>
+
+      	: <p> You need to login to see this page.</p>
        }
 
       </div>

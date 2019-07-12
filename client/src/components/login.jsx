@@ -28,12 +28,11 @@ class Login extends Component {
 
   onLogin(){
     this.setState({
-      login:true,
+      login: true,
     });
     const {onAuthentication} = this.props;
     onAuthentication();
     
-
   }
 
   render() {
@@ -49,11 +48,6 @@ class Login extends Component {
             <h1>Login to upload information</h1>
             <div className={classes.box}>
               <form id="login">
-                <label>Username</label><br></br>
-                <input id='username'></input><br></br>
-                <label>Password</label><br></br>
-                <input type='password' id='password'></input><p></p>
-                <input type='checkbox'></input><label>Remember me</label><br></br>
                 <input type='button' onClick={this.onLogin} name="" value="Login"></input>
               </form>
             </div>
