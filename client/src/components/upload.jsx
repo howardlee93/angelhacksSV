@@ -117,8 +117,7 @@ class Upload extends Component {
       <h3>Upload missing persons information</h3>
       
 
-      <Login onAuthentication = {this.onAuthentication}/>
-
+     { !this.state.authenticated && <Login onAuthentication = {this.onAuthentication}/>}
       { this.state.authenticated?
       	<UploadForm/>: <p> You need to login to see this page.</p>
        }
