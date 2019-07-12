@@ -37,7 +37,7 @@ class Upload extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
     this.onAuthentication = this.onAuthentication.bind(this);
-
+    this.onLogout = this.onLogout.bind(this)
   }
 
 
@@ -71,6 +71,11 @@ class Upload extends Component {
         });
 
   }
+  onLogout(){
+    this.setState({
+      authenticated: false
+    })
+  }
 
   render() {
 
@@ -101,7 +106,7 @@ class Upload extends Component {
       	<input type ='text' placeholder= "time" name= "time" onChange = {this.handleChange}/>
 
         <Button type="submit" style={{justifyContent:'center'}}>UPLOAD</Button>
-        <button style={{justifyContent:'center'}} > Logout</button>
+        <button style={{justifyContent:'center'}} onClick ={this.onLogout}> Logout</button>
 
 
 
