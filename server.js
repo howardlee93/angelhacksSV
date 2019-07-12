@@ -11,6 +11,12 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
+
+
+//set up for deployment
+
+app.use(express.static(path.join(__dirname, "client", "build")))
+
 // mongodb setup 
 
 
@@ -57,6 +63,13 @@ personRoutes.route('/upload').post(function(req, res) {
 });
 
 app.use('/', personRoutes);
+
+
+//setup for deployment 
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
 
 
 app.listen(PORT, function() {
