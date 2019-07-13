@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 
 const mongoose = require('mongoose');
 
-const DATABASEurl =  process.env.MONGODB_URL || 'mongodb://localhost:27017/persons';
+const DATABASEurl =  process.env.MONGODB_URI || 'mongodb://localhost:27017/persons';
 
 mongoose.connect(DATABASEurl, { useNewUrlParser: true });
 const connection = mongoose.connection;
