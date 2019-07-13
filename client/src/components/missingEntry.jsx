@@ -7,7 +7,6 @@ import axios from 'axios';
 
 
 
-const url = "http://localhost:4000/";
 
 class MissingEntry extends React.Component{
 
@@ -41,8 +40,7 @@ class MissingEntry extends React.Component{
 
 
 	searchInfo(term){
-		axios.get( url +
-			"search/" ,
+		axios.get( "search/" ,
 			{params: {
 				term:`${term}`,
 				}
