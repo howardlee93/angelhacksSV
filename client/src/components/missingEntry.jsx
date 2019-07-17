@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import Search from './search'
 import placeholder from '../assets/img/placeholder.jpg';
 import axios from 'axios';
@@ -8,7 +7,7 @@ import axios from 'axios';
 
 
 
-class MissingEntry extends React.Component{
+class MissingEntry extends Component{
 
 	constructor(props){
 		super(props);
@@ -40,7 +39,7 @@ class MissingEntry extends React.Component{
 
 
 	searchInfo(term){
-		axios.get( "search/" ,
+		axios.get( "/search" ,
 			{params: {
 				term:`${term}`,
 				}

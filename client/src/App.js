@@ -3,11 +3,8 @@
 
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {
-	BrowserRouter,
-  	Route,
-  	Link,
+  Route,
  	NavLink,
  	Switch
 } from 'react-router-dom';
@@ -23,15 +20,9 @@ import './assets/styles/app.css';
 
 
 
-class App extends React.Component{
+function App(props){
 
-	constructor(props){
-		super(props);
-
-	}
-
-render(){
-
+	
 	return(
 
 		<div >
@@ -60,9 +51,7 @@ render(){
 
 		</div>
 		)
-	}
-
-
+	
 }
 
 

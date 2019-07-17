@@ -4,11 +4,6 @@ import './index.css';
 
 import {
 	HashRouter,
-  	Route,
-  	Link,
- 	NavLink,
- 	Redirect,
- 	Switch
 } from 'react-router-dom';
 
 import App from './App';

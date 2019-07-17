@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 
 const mongoose = require('mongoose');
 
-const DATABASEurl =  process.env.MONGODB_URI || 'mongodb://localhost:27017/persons';
+const DATABASEurl =  process.env.MONGODB_URI ||  'mongodb://localhost:27017/persons';
 
 mongoose.connect(DATABASEurl, { useNewUrlParser: true });
 const connection = mongoose.connection;
@@ -47,7 +47,7 @@ let Person = require("./models/personsInfo");
 
 
 personRoutes.route('/search').get(function(req, res) {
-    let name = req.query.term.toLowerCase();
+    let name = req.query.term;
 
     Person.find({ person: `${name}` }, function(err, person) {
         res.json(person);

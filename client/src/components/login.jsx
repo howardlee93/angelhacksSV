@@ -21,15 +21,21 @@ class Login extends Component {
     this.state = {
       login: false,
     }
-    this.onLogin = this.onLogin.bind(this);
+     this.onLogin = this.onLogin.bind(this);
 
   }
 
 
   onLogin(){
-    this.setState({
-      login: true,
-    });
+
+    !this.state.login?
+      this.setState({
+        login: true,
+      })
+      : this.setState({
+        login: false,
+     }) ;
+
     const {onAuthentication} = this.props;
     onAuthentication();
     
@@ -45,10 +51,11 @@ class Login extends Component {
       <div>
         <center>
           <div className={classes.box}>
-            <h1>Login to upload information</h1>
+            {this.state.login? <div/> :<h3> Login to upload information</h3>}
+
             <div className={classes.box}>
               <form id="login">
-                <input type='button' onClick={this.onLogin} name="" value="Login"></input>
+                <input type='button' onClick={this.onLogin} name="" value = {this.state.login? "Logout":"Login"} ></input>
               </form>
             </div>
           </div>
